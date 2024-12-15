@@ -1,0 +1,144 @@
+	.linkBox {
+		min-width: 1200px;
+		height: 250px;
+		background-color: #E8F2FE;
+	}
+	
+	.linkCenter {
+		width: 1200px;
+		margin: 0 auto;
+		padding: 15px 5px;
+	}
+	
+	.linkTitle {
+		text-align: center;
+		position: relative;
+	}
+	
+	.linkTitle>span {
+		display: inline-block;
+		font-size: 20px;
+		color: #0062AD;
+		font-weight: bold;
+		letter-spacing: 2px;
+		padding-left: 12px;
+		padding-right: 12px;
+		background-color: #E8F2FE;
+		position: relative;
+		z-index: 3;
+	}
+	
+	.linkTitle:before {
+		content: "";
+		border-bottom: solid 1px #DEDFE2;
+		display: block;
+		top: 15px;
+		position: relative;
+		z-index: 0;
+	}
+	
+	.linkCont {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 20px;
+	}
+	
+	.linkCont>a {
+		width: 150px;
+		height: 120px;
+		text-align: center;
+		/* background-color: rgba(255, 255, 255, .5); */
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	.linkCont>a:hover {
+		text-decoration: none;
+	}
+	
+	.linkCont>a>p {
+		display: inline-block;
+		width: 72px;
+		height: 72px;
+		border-radius: 50%;
+		border: 1px #fff solid;
+		background-color: #fff;
+		background-position: center center;
+		background-repeat: no-repeat;
+		margin: 0 0 10px;
+		box-sizing: border-box;
+	}
+	
+	.linkCont>a:hover p {
+		background-color: #0062AD;
+		border: 8px #CCE2F2 solid;
+	}
+	
+	.linkCont>a:hover>span {
+		color: #0062AD;
+	}
+	
+	.linkCont>a>span {
+		font: 18px/22px "微软雅黑";
+		color: #4f4f4f;
+	}
+	
+	.linkCont>a>.icon_1 {
+		background-image: url('images/icon_1.png');
+	}
+	
+	.linkCont>a:hover>.icon_1 {
+		background-image: url('images/icon_1_hover.png');
+	}
+	
+	.linkCont>a>.icon_2 {
+		background-image: url('images/icon_2.png');
+	}
+	
+	.linkCont>a:hover>.icon_2 {
+		background-image: url('images/icon_2_hover.png');
+	}
+	
+	.linkCont>a>.icon_3 {
+		background-image: url('images/icon_3.png');
+	}
+	
+	.linkCont>a:hover>.icon_3 {
+		background-image: url('images/icon_3_hover.png');
+	}
+	
+	.linkCont>a>.icon_4 {
+		background-image: url('images/icon_4.png');
+	}
+	
+	.linkCont>a:hover>.icon_4 {
+		background-image: url('images/icon_4_hover.png');
+	}
+	
+	.linkCont>a>.icon_5 {
+		background-image: url('images/icon_5.png');
+	}
+	
+	.linkCont>a:hover>.icon_5 {
+		background-image: url('images/icon_5_hover.png');
+	}
+	
+	.linkCont>a>.icon_6 {
+		background-image: url('images/icon_6.png');
+	}
+	
+	.linkCont>a:hover>.icon_6 {
+		background-image: url('images/icon_6_hover.png');
+	}
+	
+	.linkCont>a>.icon_7 {
+		background-image: url('images/icon_7.png');
+	}
+	
+	.linkCont>a:hover>.icon_7 {
+		background-image: url('images/icon_7_hover.png');
+	}
+	}

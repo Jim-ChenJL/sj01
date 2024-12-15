@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="555.css" />
+		<link rel="stylesheet" href="666.css" />
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				max-width: 100%;
+				margin: 0 auto;
+				/* background-color: #dcdcdc; */
+			}
+			.topHeader{
+				min-width: 100%;
+				height: 120px;
+				background-image: url('1.jpg');
+				background-repeat: no-repeat;
+				background-position: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: lightblue;
+			}
+			#nav {
+				background-color: #1653a4;
+				width: 100%;
+				/* margin-top: 50px; */
+				z-index: 2;
+			
+			}
+			.nav-sub {
+				width: 970px;
+				margin: 0 auto;
+				list-style-type: none;
+				/* border: 1px red solid; */
+				display: flex;
+				/* 将容器设置为flex容器 */
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+			
+			
+			}
+			
+			.container {
+				display: flex;
+				/* 将容器设置为flex容器 */
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+			}
+			
+			.nav-sub>li {
+				margin: auto;
+				float: left;
+				height: 50px;
+				line-height: 48px;
+				position: relative;
+				/* border: 1px red solid;s */
+				z-index: 80;
+				/*父类相对定位*/
+			}
+			
+			.nav-sub>li>a {
+				display: block;
+				text-decoration: none;
+				color: #fff;
+				font-size: 20px;
+				padding-left: 10px;
+				padding-right: 10px;
+				width: 85px;
+				text-align: center;
+				z-index: 2;
+				/* border: 1px red solid; */
+			
+			}
+			
+			.nav-sub>li:hover {
+				background-color:rgba(0, 0, 255, 0.2);
+			}
+			
+			/*清除浮动方法3：在父级元素下增加after伪元素*/
+			.nav-sub::after {
+				content: "";
+				display: block;
+				height: 0;
+				clear: both;
+				z-index: 2;
+			}
+			
+			/*一级菜单样式-结束*/
+			/*二级菜单样式-start*/
+			.nav-sub>li>ul {
+				display: none;
+				/*二级菜单默认隐藏*/
+				list-style-type: none;
+				margin-top: 3px;
+				white-space: nowrap;
+				/*默认宽度为父类宽，曲线救
+			国，不换行 */
+				position: absolute;
+				/*子类绝对定位*/
+				padding: 0px;
+				margin: 0px;
+				z-index: 2;
+			}
+			
+			.nav-sub>li>ul>li {
+				height: 35px;
+				padding: 10px 20px 0px 20px;
+				width: auto;
+				background-color: #1653a4;
+				text-align: left;
+				line-height: 50px;
+				z-index: 2;
+			}
+			
+			.nav-sub>li>ul>li>a {
+				color: #FFFFFF;
+				text-decoration: none;
+				line-height: 24px;
+				display: block;
+				z-index: 2;
+			}
+			
+			.nav-sub>li>ul>li:hover {
+				background-color: dodgerblue;
+				z-index: 2;
+			}
+			
+			/*鼠标经过一级菜单li时，二级菜单显示*/
+			.nav-sub>li:hover>ul {
+				display: block;
+				z-index: 2;
+			}
+			
+			/*二级菜单样式-end*/
+			
+			.container {
+				display: flex;
+				/* 将容器设置为flex容器 */
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+				/* 可选：调整盒子之间的间距 */
+			}
+			.indicator{
+			position: absolute;/*子绝对定位*/
+			bottom: 130px;
+			display: flex;
+			/* border: 1px #fff solid; */
+			/*实现居中*/
+			left: 50%;
+			transform: translateX(-50%);
+			}
+			.indicator>span{
+			width: 20px;
+			height: 20px;
+			border: 2px #ccc solid;
+			border-radius: 50%;
+			margin: 0px 3px;
+			}
+			.indicator>span.active{
+			background-color: #fff;
+			}
+			
+			.photo-gallery {
+			    display: flex;
+			    justify-content: space-around;
+			    flex-wrap: wrap;
+			}
+			.photo-card {
+			    background-color: white;
+			    border: 1px solid #ccc;
+			    border-radius: 10px;
+			    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			    margin: 10px;
+			    width: calc(25% - 40px); 
+			    text-align: center;
+			}
+			.photo-card img {
+			    max-width: 100%;
+			    height: auto;
+			    border-top-left-radius: 10px;
+			    border-top-right-radius: 10px;
+			}
+			.photo-card h3 {
+			    margin: 10px 0;
+			    font-size: 18px;
+			    color: #333;
+			}
+			.photo-card p {
+			    font-size: 14px;
+			    color: #666;
+			    margin: 5px 0;
+			}
+			.dibu{
+				height: 150px;
+				min-width: 1200px;
+				background-color: #0b62ac;
+			}
+			
+			.dibucont{
+				/* background-color: rgba(255.255.255. .1); */
+				height: 150px;
+				width: 1200px;
+				margin: 0 auto;
+				color: #fff;
+				font-size: 16px;
+				line-height: 1.8em;
+				display: flex;
+				justify-content: space-around;/*居中对齐，子元素位于弹性容器中心*/
+				align-items: center;/*弹性容器内的项目居中对齐*/
+				padding: 10px;
+				box-sizing: border-box;
+			}
+			
+			.lelf{
+				display: inline-block;
+				width: 80px;
+				height: 80px;
+				background-image: url(logo_bottom.png);
+				background-position: center center; 
+				float: left;
+				/* background-color: rgba(255.255.255. .2); */
+			}
+			
+			.center{
+				
+			}
+			.box p {
+			  padding: 0 40px;
+			  line-height: 40px;
+			  text-indent: 2em;
+			}
+			.news-section,
+			.downloads-section {
+				margin-bottom: 20px;
+			}
+				
+			.news-section h2,
+			.downloads-section h2 {
+				text-align: center;
+				margin-bottom: 10px;
+			}
+				
+			.news-section ul,
+			.downloads-section ul {
+				list-style-type: none;
+				padding: 0;
+			}
+				
+			.news-section ul li,
+			.downloads-section ul li {
+				margin: 10px 0;
+				text-align: center;
+			}
+				
+			.news-section ul li a,
+			.downloads-section ul li a {
+				text-decoration: none;
+				color: #003366;
+			}
+				
+			.news-section ul li a:hover,
+			.downloads-section ul li a:hover {
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="topHeader">
+			<div>
+				<a href></a>
+			</div>
+		</header>
+		<nav id="nav">
+			<ul class="nav-sub container">
+				<li class="box">
+					<a href="https://www.gyiist.edu.cn/">首页</a>
+				</li>
+				<li class="box">
+					<a href="#">学生事务</a>
+					<ul>
+						<li><a href="安全教育.html">安全教育</a></li>
+						<li><a href="学风建设.html">学风建设</a></li>
+						<li><a href="评优评奖.html">评优评奖</a></li>
+					</ul>
+				</li>
+				<li class="box">
+					<a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=12026&itemId=379">学生资助</a>
+					<ul>
+						<li><a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=26849&itemId=385">助学金</a></li>
+						<li><a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=26848&itemId=383">勤工助学</a></li>
+						<li><a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=26880&itemId=391">资助育人</a></li>
+					</ul>
+				</li>
+				<li class="box">
+					<a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=12026&itemId=379">思政教育</a>
+					<ul>
+						<li><a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=26918&itemId=379">理论学习</a></li>
+						<li><a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=28068&itemId=378">辅导员队伍建设</a></li>
+					</ul>
+				</li>
+				<li class="box">
+					<a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=27951&itemId=389">国防教育</a>
+					<ul>
+						<li><a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=28217&itemId=390">征兵工作</a></li>
+					</ul>
+				</li>
+				<li class="box">
+					<a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=27760&itemId=350">人物风采</a>
+				</li>
+				<li class="box">
+					<a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=26431&amp;itemId=339">下载专区</a>
+				</li>
+				
+			</ul>
+		</nav>
+		<div class="carousel-container">
+			<button class="prev" onclick="prevSlide()"><</button>
+			<div class="carousel-slide" style="transform: translateX();">
+				<img src="2.jpg" alt="Slide 1">
+				<img src="3.jpg" alt="Slide 1">
+				<img src="4.jpg" alt="Slide 1">
+				<img src="5.jpg" alt="Slide 1">
+			</div>
+			<button class="next" onclick="nextSlide()">></button>
+
+		</div>
+		<div class="indicator">
+			<span class></span>
+			<span class></span>
+			<span class></span>
+			<span class></span>
+		</div>
+		<script src="2.js"></script>
+		<div class="box">
+			<h1 align="center">学生工作</h1>
+			<p>学生工作处（简称：学工处）是指在高校或省级教育部门中设置的主要负责学生事务的工作机构。 在高校党委（教育厅党委）和行政（教育厅行政）的职能部门，根据教育行政部门和高校党委、行政关于学生工作的指导思想和原则，创造性地开展学校工作。本着统筹、协调、指导和服务的原则，负责高校学生的思想政治教育、行为规范管理、成长成才服务            </p>
+		</div>
+		<div class="news-section">
+			<h2>学工动态</h2>
+			<ul>
+				<li>
+					<a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=28089&amp;itemId=352">学校召开2024年秋季学期学生工作会议暨安全稳定专题部署会[06/30]</a>
+				</li>
+				<li>
+					<a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=27840&amp;itemId=352">锚定目标，力求实效丨校领导带队深入各学院开展调研座谈会[06/30]</a>
+				</li>
+				<li>
+					<a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=27611&amp;itemId=352">贵阳信息科技学院召开2024年迎新工作协调会[06/16]</a>
+				</li>
+			</ul>
+		</div>
+		<div class="downloads-section">
+			<h2>学生事务</h2>
+			<ul>
+				<li>
+					<a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=28171&amp;itemId=380">我校2024年度“十佳大学生”终评活动圆满结束</a>
+				</li>
+				<li>
+					<a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=28010&amp;itemId=380">贵阳信息科技学院关于2024年贵州省普通高等学校三好学生、优秀学生干部、先进班集体拟推荐名单的公示</a>
+				</li>
+				<li>
+					<a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=27937&amp;itemId=380">贵阳信息科技学院关于2023-2024学年优秀学生奖学金、三好、优干等评审名单的公示
+											</a>
+				</li>
+				<li>
+					<a href="https://www.gyiist.edu.cn/xgb/article.jsp?id=27838&amp;itemId=380">关于开展2024年贵州省普通高等学校三好学生、优秀学生干部、先进班集体评选推荐工作的通知</a>
+				</li>
+			</ul>
+		</div>	
+		
+		<main>
+			<div>
+				<div class="photo-gallery">
+					<div class="photo-card">
+						<img src="6.jpg" alt="亚洲风格建筑">
+						<h3>春日贵科</h3>
+						<p>春日里，樱花烂漫，柳絮飘飞，嫩绿的叶芽与绚烂的花朵交织成一幅生机勃勃的画卷。</p>
+					</div>
+					<div class="photo-card">
+						<img src="7.jpg" alt="园艺工作">
+						<h3>夏日贵科</h3>
+						<p>夏日，阳光炽热，树荫浓密，学子们在林荫道上穿梭，欢声笑语中洋溢着青春的活力.</p>
+					</div>
+					<div class="photo-card">
+						<img src="8.jpg" alt="现代建筑">
+						<h3>秋日贵科</h3>
+						<p>秋风送爽，金黄的银杏叶铺满小径，每一步都踏出了岁月的回响，沉静而深远</p>
+					</div>
+					<div class="photo-card">
+						<img src="9.jpg" alt="">
+						<h3>冬日贵科</h3>
+						<p>冬日，雪花纷飞，银装素裹，校园变成了一片洁白无瑕的童话世界，静谧中孕育着新的希望与梦想。</p>
+					</div>
+				</div>
+			</div>
+		
+		<div class="linkBox">
+						<div class="linkCenter">
+							<div class="linkTitle">
+								<span><i class="fa fa-link" style="font-size: 20px;"></i></span>
+							</div>
+							<div class="linkCont">
+								<a href="http://stu gyiist.edu.cn="_blank">
+									<p class="icon_4"></p><span>学生管理系统</span>
+								</a>
+								<a href="https://www.gyiist.edu.cn/zs/" target="_blank">
+									<p class="icon_3"></p><span>招生信息网</span>
+								</a>
+								<a href="https://mdcgzu.jysd.com" target="_blank">
+									<p class="icon_4"></p><span>就业信息网</span>
+								</a>
+								<a href="https://www.chsi.com.cn/ " target="_blank">
+									<p class="icon_5"></p><span>学信网</span>
+								</a>
+							</div>
+		</main>					
+		<div class="dibu">
+			<div class="dibucont">
+				<div class="lelf"></div>
+				<div class="center">
+					地址：贵州省贵阳市贵安新区花溪大学城思雅路8号
+					<br>
+					邮编：550025    邮箱：bgs@gyiist.edu.cn
+					<br>			
+					电话（传真）：0851-88921856 
+					<br>				
+					ICP备案号：黔ICP备20002667号 
+				</div>
+				<div class="right"></div>
+					<img src="10.jpg" alt="" />
+					<img src="11.jpg" alt="" />
+			</div>
+		</div>
+	</body>
+</html>
